@@ -1,0 +1,19 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  category: MyString
+  name: MyString
+  start_time: 
+  end_time: 
+  mastery: 1.5
+  pleasure: 1.5
+  comment: MyString
+
+two:
+  category: MyString
+  name: MyString
+  start_time: 
+  end_time: 
+  mastery: 1.5
+  pleasure: 1.5
+  comment: MyString

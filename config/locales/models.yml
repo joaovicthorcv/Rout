@@ -1,0 +1,11 @@
+pt-BR:
+  activerecord:
+    models:
+      activity: Atividade
+    attributes:
+      activity:
+        category: 'Categoria'
+        name: 'Nome'
+        start_time: 'Início'
+        end_time: 'Fim'
+        
