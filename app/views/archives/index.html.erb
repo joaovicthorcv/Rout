@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <% @activities.each do |day, activities| %>
+        <h3 class="display-6 text-center"><strong>
+            Atividades de <%= day %>
+        </strong></h3>
+        <table class="table table-dark table-striped table-hover">
+            <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Categoria</th>
+                <th>Início</th>
+                <th>Fim</th>
+                <th>Maestria</th>
+                <th>Prazer</th>
+                <th>Comentário</th>
+                <th></th>
+            </tr>
+            </thead>
+            <% activities.each do |activity| %>
+                <% if activity.user == current_user %>
+                    <tr>
+                        <td><%= link_to activity.name, activity_path(activity), class: "btn btn-secondary btn-sm"%>
+                        <td><%= activity.category.title %></td>
+                        <td><%= activity.start_time.to_formatted_s(:time) if activity.start_time? %></td>
+                        <td><%= activity.end_time.to_formatted_s(:time) if activity.end_time? %></td>
+                        <td><%= activity.mastery %></td>
+                        <td><%= activity.pleasure %></td>
+                        <td><%= activity.comment %></td>
+                        <td>
+                            <%= link_to 'Deletar', activity, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-secondary btn-sm" %>
+                        </td> 
+                    </tr>
+                <% end %>
+            <% end %>
+            </tbody>
+        </table>
+    <% end %>
+</div>

@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    @activities = Activity.where("created_at >= ?", Date.today)
   end
 
   # GET /activities/1
@@ -78,6 +78,6 @@ class ActivitiesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def activity_params
-      params.require(:activity).permit(:category, :name, :start_time, :end_time, :mastery, :pleasure, :comment, :user_id)
+      params.require(:activity).permit(:category_id, :name, :start_time, :end_time, :mastery, :pleasure, :comment, :user_id)
     end
 end

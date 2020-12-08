@@ -1,20 +1,23 @@
-
+<% content_for :date_title do %>
+      <%= @activity.name %>
+      <% if @activity.start_time? %>
+        &ndash; <%= @activity.start_time.to_s(:nice_date) %>
+      <% end %>
+    <% end %>
 
 <div class="jumbotron">
-  <h1 class="display-4"><%= @activity.name %></h1>
-  <p class="lead"><%= @activity.category %> | <%= @activity.start_time %> - <%= @activity.end_time %> | 
-    <strong>Mastery:</strong>
+  <h2 class="display-6"><%= yield :date_title %></h2>
+  <p class="lead"><%= @activity.category.title %> | <%= @activity.start_time %> - <%= @activity.end_time %> | 
+    <strong>Maestria:</strong>
     <%= @activity.mastery %> |
-    <strong>Pleasure:</strong>
+    <strong>Prazer:</strong>
     <%= @activity.pleasure %>
-  
-  
   </p>
   <hr class="my-4">
   <p><%= @activity.comment %></p>
   <%= link_to 'Editar', edit_activity_path(@activity), class: "btn btn-secondary btn-lg" %>
   <%= link_to 'Deletar', @activity, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-secondary btn-lg" %>
-  <%= link_to 'Voltar', activities_path, class: "btn btn-secondary btn-lg" %>
+  <%= link_to 'Voltar', :back, class: "btn btn-secondary btn-lg" %>
 </div>
 
 
