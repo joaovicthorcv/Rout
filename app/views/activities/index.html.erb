@@ -1,8 +1,8 @@
 
 <% if user_signed_in? %>
-
+  <!-- .to_s(:nice_date) -->
   <%= content_for :date_title do %>
-    Rotina &ndash; <%= DateTime.now.to_s(:nice_date) %>
+    Rotina &ndash; <%= I18n.l(Date.today, format: :long) %>
   <% end %>
   <h3>
     <% if content_for(:date_title) %>
