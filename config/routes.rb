@@ -2,7 +2,9 @@ Rails.application.routes.draw do
   
   get 'archives/index'
   devise_for :users
-    resources :activities
+    resources :activities do
+      get :extend
+    end
     resources :categories
     #get 'home/index'
     root 'activities#index'

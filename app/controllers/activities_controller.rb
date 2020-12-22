@@ -1,7 +1,7 @@
 class ActivitiesController < ApplicationController
-  before_action :set_activity, only: [:show, :edit, :update, :destroy]
+  before_action :set_activity, only: [:show, :edit, :update, :destroy, :extend]
   before_action :authenticate_user!, except: [:index]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy]
+  before_action :correct_user, only: [:show, :edit, :update, :destroy, :extend]
 
   # GET /activities
   # GET /activities.json
@@ -20,6 +20,10 @@ class ActivitiesController < ApplicationController
     @activity = current_user.activities.build
   end
 
+  def extend
+    puts 'test'
+  end
+
   # GET /activities/1/edit
   def edit
   end
@@ -29,7 +33,6 @@ class ActivitiesController < ApplicationController
   def create
     #@activity = Activity.new(activity_params)
     @activity = current_user.activities.build(activity_params)
-
     respond_to do |format|
       if @activity.save
         format.html { redirect_to @activity, notice: (I18n.t 'activerecord.activity.created') }

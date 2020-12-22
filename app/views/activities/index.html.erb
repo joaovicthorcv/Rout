@@ -12,9 +12,16 @@
     <% end %>
   </h3>
   <br>
+  
   <div class="container">
     <div class="row justify-content-center">
-      <div class="col text-center"><%= link_to 'Nova Atividade', new_activity_path, class: "btn btn-secondary" %></div>
+      <div class="col text-center">
+        <% current_user.categories.each do |cat| %>
+          <% if cat.user == current_user %>
+            <%= link_to ('Adicionar ' + t(cat.title)), new_activity_path(category: cat.title), class: "btn btn-secondary" %>
+          <% end %>
+        <% end %>
+      </div>
       <div class="col text-center"><%= link_to 'Nova Categoria', new_category_path, class: "btn btn-secondary" %></div> 
     </div><br>
   </div>

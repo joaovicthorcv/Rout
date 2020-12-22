@@ -1,4 +1,7 @@
 pt-BR:
+  thought: 'pensamento'
+  action: 'ação'
+  habit: 'hábito'
   activerecord:
     models:
       activity: Atividade
@@ -8,6 +11,8 @@ pt-BR:
       updated: 'Atividade atualizada com sucesso'
       destroyed: 'Atividade deletada com sucesso'
       auth: 'Você não tem autorização para isso'
+    category: 
+      
     errors:
       messages:
         record_invalid: 'A validação falhou: %{errors}'
