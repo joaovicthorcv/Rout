@@ -11,7 +11,6 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'simple_form'
-gem 'simple_form_extension'
 gem 'devise', '~> 4.2'
 gem 'i18n'
 gem 'date_wrapper'
@@ -39,5 +38,3 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
-
-gem 'redactor-rails', github: 'glyph-fr/redactor-rails'
