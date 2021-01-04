@@ -13,16 +13,17 @@
   <% end %>
 
   <div class="form-inputs">
+    <div class="container">
     <div class="row justify-content-between">
-      <div class="col-1"><h2>🙁</h2></div>
-      <div class="col-1"><h2>😐</h2></div>
-      <div class="col-1"><h2>😁</h2></div>
+      <div class="text-left"><h3>🙁</h3></div>
+      <div class="text-center"><h3>😐</h3></div>
+      <div class="text-right"><h3>😁</h3></div>
     </div>
     
   
     
-    <%= f.input :scale, as: :range, input_html: { min: "0", max: "10", tooltip: "always" }, label: false %>
-    
+    <%= f.input :scale, as: :range, input_html: { min: "0", max: "10" }, label: false %>
+    </div>
     <%= f.input :feelings %>
     <%= f.input :trigger %>
     <%= f.input :thought %>
