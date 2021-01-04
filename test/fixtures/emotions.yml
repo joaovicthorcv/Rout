@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  scale: 1
+  feelings: 
+  trigger: MyString
+  thought: MyString
+  action: MyString
+
+two:
+  scale: 1
+  feelings: 
+  trigger: MyString
+  thought: MyString
+  action: MyString

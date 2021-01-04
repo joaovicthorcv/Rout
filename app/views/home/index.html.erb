@@ -1,2 +1,73 @@
-<h1>Rout</h1>
-<p>Registre sua rotina</p>
+<% if user_signed_in? %>
+  <!-- .to_s(:nice_date) -->
+  <%= content_for :date_title do %>
+    Rotina &ndash; <%= I18n.l(Date.today, format: :long) %>
+  <% end %>
+  <h3>
+    <% if content_for(:date_title) %>
+      <%= yield :date_title %>
+    <% else %>
+      Minha Rotina
+    <% end %>
+  </h3>
+  <br>
+  
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col text-center">
+        <%= link_to 'Nova Ação', new_activity_path, class: "btn btn-secondary" %>
+        <%= link_to 'Nova Emoção', new_emotion_path, class: "btn btn-secondary" %>
+        <!-- <%= link_to 'Novo Hábito', new_activity_path, class: "btn btn-secondary" %>
+        <% current_user.categories.each do |cat| %>
+          <% if cat.title == 'thought' || cat.title == 'habit' || cat.title == 'action' %>
+            <%= link_to ('Adicionar ' + t(cat.title)), new_activity_path(category: cat.title), class: "btn btn-secondary" %>
+          <% end %>
+        <% end %>-->
+      </div>
+     <!-- <div class="col text-center"><%= link_to 'Nova Categoria', new_category_path, class: "btn btn-secondary" %></div> 
+    </div>--><br><br>
+  </div>
+  <table class="table table-dark table-striped table-hover">
+    <thead>
+      <tr>
+        <th>Nome</th>
+        <th>Categoria</th>
+        <th>Início</th>
+        <th>Fim</th>
+        <th>Masteria</th>
+        <th>Prazer</th>
+        <th>Comentário</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @activities.each do |activity| %>
+        <% if activity.user == current_user %>
+          <tr>
+            <td><%= link_to activity.name, activity, class: "btn btn-secondary btn-sm"%>
+            <td><%= activity.category.title.capitalize %></td>
+            <td><%= activity.start_time.to_formatted_s(:time) if activity.start_time? %></td>
+            <td><%= activity.end_time.to_formatted_s(:time) if activity.end_time? %></td>
+            <td><%= activity.mastery %></td>
+            <td><%= activity.pleasure %></td>
+            <td><%= activity.comment %></td>
+            <td>
+                <%= link_to 'Deletar', activity, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-secondary btn-sm" %>
+            </td> 
+          </tr>
+        <% end %>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+  <div class="row justify-content-center">
+    <%= link_to 'Ver todas as atividades', archives_index_path, class: "btn btn-secondary btn-lg" %>
+  </div>
+  
+
+<% else %>
+  <h1>Bem-vindo ao Rout</h1>
+  <p>Aqui você pode registrar sua rotina e acompanhar seu desenvolvimento pessoal!</p>
+<% end %>

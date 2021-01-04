@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Scale:</strong>
+  <%= @emotion.scale %>
+</p>
+
+<p>
+  <strong>Feelings:</strong>
+  <%= @emotion.feelings %>
+</p>
+
+<p>
+  <strong>Trigger:</strong>
+  <%= @emotion.trigger %>
+</p>
+
+<p>
+  <strong>Thought:</strong>
+  <%= @emotion.thought %>
+</p>
+
+<p>
+  <strong>Action:</strong>
+  <%= @emotion.action %>
+</p>
+
+<%= link_to 'Edit', edit_emotion_path(@emotion) %> |
+<%= link_to 'Back', emotions_path %>

@@ -1,0 +1,38 @@
+
+<%= simple_form_for(@emotion) do |f| %>
+  <% if emotion.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(emotion.errors.count, "erro") %> proibiu essa ação de ser salva:</h4>
+
+      <ul>
+        <% emotion.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <div class="row justify-content-between">
+      <div class="col-1"><h2>🙁</h2></div>
+      <div class="col-1"><h2>😐</h2></div>
+      <div class="col-1"><h2>😁</h2></div>
+    </div>
+    
+  
+    
+    <%= f.input :scale, as: :range, input_html: { min: "0", max: "10", tooltip: "always" }, label: false %>
+    
+    <%= f.input :feelings %>
+    <%= f.input :trigger %>
+    <%= f.input :thought %>
+    <%= f.input :action %>
+    <%= f.input :user_id, id: :emotion_user_id, input_html: { type: :hidden, value: current_user.id }, label: false %>
+    
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    
+  </div>
+<% end %>

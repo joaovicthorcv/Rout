@@ -4,7 +4,6 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.7.0'
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-
 gem 'puma', '~> 4.1'
 gem 'sass-rails', '>= 6'
 gem 'webpacker', '~> 4.0'
@@ -12,6 +11,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'simple_form'
+gem 'simple_form_extension'
 gem 'devise', '~> 4.2'
 gem 'i18n'
 gem 'date_wrapper'
@@ -39,3 +39,5 @@ group :test do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'redactor-rails', github: 'glyph-fr/redactor-rails'

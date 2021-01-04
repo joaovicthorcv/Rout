@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_191718) do
+ActiveRecord::Schema.define(version: 2021_01_04_172239) do
 
   create_table "activities", force: :cascade do |t|
     t.string "category"
@@ -34,6 +34,18 @@ ActiveRecord::Schema.define(version: 2020_12_21_191718) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_categories_on_user_id"
+  end
+
+  create_table "emotions", force: :cascade do |t|
+    t.integer "scale"
+    t.string "feelings"
+    t.string "trigger"
+    t.text "thought"
+    t.string "action"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_emotions_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
