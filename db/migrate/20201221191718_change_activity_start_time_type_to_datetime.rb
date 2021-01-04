@@ -1,5 +1,5 @@
 class ChangeActivityStartTimeTypeToDatetime < ActiveRecord::Migration[6.0]
   def change
-    change_column :activities, :start_time, 'timestamptz using start_time::timestamptz'
+    change_column :activities, :start_time, 'datetime using start_time::timestamp'
   end
 end
