@@ -18,6 +18,7 @@ class EmotionsController < ApplicationController
   def new
     #@emotion = Emotion.new
     @emotion = current_user.emotions.build
+    
   end
 
   # GET /emotions/1/edit
@@ -78,7 +79,7 @@ class EmotionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def emotion_params
-      params.require(:emotion).permit(:scale, :feelings, :trigger, :thought, :action, :user_id)
+      params.require(:emotion).permit(:scale, :trigger, :thought, :action, :user_id, feeling_ids: [])
     end
 
     

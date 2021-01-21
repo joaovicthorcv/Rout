@@ -1,14 +1,15 @@
 Rails.application.routes.draw do
   
-  
-  
   devise_for :users
     
     resources :activities do
       get :extend
     end
+
     resources :categories
     resources :emotions
+    resources :feelings
+      
     #get 'home/index'
     root 'home#index'
     get 'home/about'

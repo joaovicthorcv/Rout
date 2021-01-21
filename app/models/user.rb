@@ -8,5 +8,5 @@ class User < ApplicationRecord
          has_many :activities
          has_many :emotions
          has_many :categories
-  
+         has_many :feelings
 end

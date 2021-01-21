@@ -7,7 +7,7 @@
 
 <p>
   <strong>Feelings:</strong>
-  <%= @emotion.feelings %>
+  <%= get_translated_keys(@emotion.feelings.pluck(:name), "feelings_types", @emotion.feelings.pluck(:name)) %>
 </p>
 
 <p>

@@ -14,17 +14,12 @@
 
   <div class="form-inputs">
     <div class="container">
-    <div class="row justify-content-between">
-      <div class="text-left"><h3>🙁</h3></div>
-      <div class="text-center"><h3>😐</h3></div>
-      <div class="text-right"><h3>😁</h3></div>
+    <div class="row justify-content-center">
+      <div><div id="scale_emoji" class="text-center" style="font-size:100px">😐</div></div>
     </div>
-    
-  
-    
-    <%= f.input :scale, as: :range, input_html: { min: "0", max: "10" }, label: false %>
+    <%= f.input :scale, as: :range, input_html: { min: "0", max: "4", id: "scale_slider" }, label: false %>
     </div>
-    <%= f.input :feelings %>
+    <%= f.input :feeling_ids, as: :check_boxes, collection: FeelingsTypes.to_a, wrapper: :vertical_collection_inline, :include_hidden => false %>
     <%= f.input :trigger %>
     <%= f.input :thought %>
     <%= f.input :action %>
@@ -36,4 +31,33 @@
     <%= f.button :submit %>
     
   </div>
+
+  
 <% end %>
+
+<script>
+$(document).ready(function() {
+    $("#scale_slider").on("change", ()=>{
+      let value = $("#scale_slider").val()
+      let emoji = $("#scale_emoji")
+      emoji.val(value)
+      switch (emoji.val()) {
+          case "0":
+              emoji.html("😖")
+              break;
+          case "1":
+              emoji.html("🙁")
+              break;
+          case "2":
+              emoji.html("😐")
+              break;
+          case "3":
+              emoji.html("🙂")
+              break;
+          case "4":
+              emoji.html("😁")
+              break;
+      }
+    })
+  });
+</script>

@@ -19,7 +19,7 @@ module Rout
 
 
     #I18n.load_path << Dir[File.expand_path("config/locales") + "/*.yml"]
-    config.i18n.default_locale = :'pt-BR' 
+    config.i18n.default_locale = :'pt-BR'
     #I18n.available_locales = [:en, 'pt-BR', :de, :fr]
     #config.encoding = "utf-8"
     # Settings in config/environments/* take precedence over those specified here.

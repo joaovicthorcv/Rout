@@ -1,0 +1,26 @@
+
+<%= simple_form_for(@feeling) do |f| %>
+  <% if feeling.errors.any? %>
+    <div id="error_explanation">
+      <h4><%= pluralize(feeling.errors.count, "erro") %> proibiu essa ação de ser salva:</h4>
+
+      <ul>
+        <% feeling.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :user_id, id: :feeling_user_id, input_html: { type: :hidden, value: current_user.id }, label: false %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    
+  </div>
+
+  
+<% end %>
