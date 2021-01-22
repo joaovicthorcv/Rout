@@ -18,7 +18,7 @@
     <% @emotions.each do |emotion| %>
       <tr>
         <td><%= emotion.scale %></td>
-        <td><%= emotion.feelings %></td>
+        <td><%= get_translated_keys(@emotion.feelings.pluck(:name), "feelings_types", @emotion.feelings.pluck(:name)) %></td>
         <td><%= emotion.trigger %></td>
         <td><%= emotion.thought %></td>
         <td><%= emotion.action %></td>

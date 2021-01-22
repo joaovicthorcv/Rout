@@ -1,27 +1,27 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Scale:</strong>
+  <strong>Escala:</strong>
   <%= @emotion.scale %>
 </p>
 
 <p>
-  <strong>Feelings:</strong>
+  <strong>Sentimentos:</strong>
   <%= get_translated_keys(@emotion.feelings.pluck(:name), "feelings_types", @emotion.feelings.pluck(:name)) %>
 </p>
 
 <p>
-  <strong>Trigger:</strong>
+  <strong>Gatilho:</strong>
   <%= @emotion.trigger %>
 </p>
 
 <p>
-  <strong>Thought:</strong>
+  <strong>Pensamento:</strong>
   <%= @emotion.thought %>
 </p>
 
 <p>
-  <strong>Action:</strong>
+  <strong>Ação:</strong>
   <%= @emotion.action %>
 </p>
 
