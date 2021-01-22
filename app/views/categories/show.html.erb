@@ -1,9 +1,7 @@
-<p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Title:</strong>
+  <strong>Título:</strong>
   <%= @category.title %>
 </p>
 
-<%= link_to 'Edit', edit_category_path(@category) %> |
-<%= link_to 'Back', categories_path %>
+<%= link_to 'Editar', edit_category_path(@category), class: "btn btn-secondary" %> |
+<%= link_to 'Voltar', categories_path, class: "btn btn-outline-secondary" %>

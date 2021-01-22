@@ -7,7 +7,7 @@
 
 <div class="jumbotron">
   <h2 class="display-6"><%= yield :date_title %></h2>
-  <p class="lead"><%= @activity.category.title %> | <%= @activity.start_time %> - <%= @activity.end_time %> | 
+  <p class="lead"><%= @activity.category.title %> | <%= I18n.l @activity.start_time, format: :default %> -> <%= @activity.end_time.to_time %> | 
     <strong>Maestria:</strong>
     <%= @activity.mastery %> |
     <strong>Prazer:</strong>

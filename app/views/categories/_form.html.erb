@@ -4,14 +4,16 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
-    <%= f.input :title %>
+    <%= f.input :title, label: "Título" %>
   </div>
 
   <div class="form-group field">
       <%= f.input :user_id, id: :category_user_id, input_html: { class: "form-control", type: :hidden, value: current_user.id }, label: false %>
     </div>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
+  <div class="row justify-content-center">
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-secondary btn-lg" %>
+    </div>
   </div>
 <% end %>

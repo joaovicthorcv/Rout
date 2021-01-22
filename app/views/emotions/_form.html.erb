@@ -17,7 +17,7 @@
     <div class="row justify-content-center">
       <div><div id="scale_emoji" class="text-center" style="font-size:100px">😐</div></div>
     </div>
-    <%= f.input :scale, as: :range, input_html: { min: "0", max: "4", id: "scale_slider" }, label: false %>
+    <%= f.input :scale, as: :range, input_html: { min: "0", max: "4", id: "scale_slider", class: "form-range" }, label: false %>
     </div>
     <%= f.input :feeling_ids, as: :check_boxes, collection: FeelingsTypes.to_a, wrapper: :vertical_collection_inline, label: "Sentimentos", :include_hidden => false %>
     <%= f.input :trigger, label: "Gatilho" %>
@@ -26,12 +26,11 @@
     <%= f.input :user_id, id: :emotion_user_id, input_html: { type: :hidden, value: current_user.id }, label: false %>
     
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit class: "btn btn-secondary btn-lg" %>
-    
+  <div class="row justify-content-center">
+    <div class="form-actions">
+      <%= f.button :submit, class: "btn btn-secondary btn-lg" %>
+    </div>
   </div>
-
   
 <% end %>
 

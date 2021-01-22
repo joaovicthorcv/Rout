@@ -1,5 +1,11 @@
-<h1>New Emotion</h1>
+<h3 class="row justify-content-center">Nova Emoção</h3>
+<br>
+<div class="row justify-content-center">
+    <div class="col-sm-6 border border-5 rounded rounded-3 p-3">
+        <%= render 'form', emotion: @emotion %>
+    </div>
+</div>
 
-<%= render 'form', emotion: @emotion %>
+<%= link_to 'Voltar', :back, class: "btn btn-outline-secondary" %>
+<br><br>
 
-<%= link_to 'Back', emotions_path %>

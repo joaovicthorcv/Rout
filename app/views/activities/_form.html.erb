@@ -11,31 +11,21 @@
     </div>
   <% end %>
     
-  <div class="form-group field">
-    <%= form.input :category_id, collection: current_user.categories, input_html: { class: "form-control" }, label: false, prompt: "Categoria", required: true %>
-  </div>
-  <%= form.input :start_time, as: :datetime, label: 'Hora' %>
-  <div class="form-group field">
-    <%= form.input :name, input_html: { class: "form-control" }, placeholder: "Nome, ex.: Cozinhar", label: false %>
-  </div>
-  <div class="form-group field">
-    <%= form.input :end_time, as: :datetime, input_html: { class: "form-control" }, label: false %>
-  </div>
-  <div class="form-group field">
-    <%= form.input :mastery, input_html: { class: "form-control" }, placeholder: "Maestria, ex.: 7.5", label: false %>
-  </div>
-  <div class="form-group field">
-    <%= form.input :pleasure, input_html: { class: "form-control" }, placeholder: "Prazer, ex.: 8.5", label: false %>
-  </div>
-  <div class="form-group field">
-    <%= form.input :comment, as: :text, input_html: { class: "form-control" }, label: false, placeholder: "Comentário" %>
-  </div>
-  <div class="form-group field">
-    <%= form.input :user_id, id: :activity_user_id, input_html: { class: "form-control", type: :hidden, value: current_user.id }, label: false %>
-  </div>
+  <%= form.input :category_id, collection: current_user.categories, label: false, prompt: "Categoria", required: true %>
+  <%= form.input :start_time, as: :datetime, input_html: { id: "datetime-selector" }, label: 'Início' %>
+  <%= form.input :end_time, as: :datetime, input_html: { id: "datetime-selector" }, label: "Fim" %>
+  <%= form.input :name, placeholder: "Nome", label: false, hint: "ex.: Cozinhar" %>
+  <%= form.input :mastery, placeholder: "Maestria", label: false , hint: "ex.: 7.5" %>
+  <%= form.input :pleasure, placeholder: "Prazer", label: false, hint: "ex.: 8.5" %>
+  <%= form.input :comment, as: :text, label: false, placeholder: "Comentário" %>
+  <%= form.input :user_id, id: :activity_user_id, input_html: { type: :hidden, value: current_user.id }, label: false %>
+
   <br/>
-  <div class="actions">
+  <div class="actions row justify-content-center">
       <%= form.submit class: "btn btn-secondary btn-lg" %>
   </div>
 
 <% end %>
+<script>
+  $('select[id*="datetime-selector"]').wrap('<div class="select_wrapper">');
+</script>

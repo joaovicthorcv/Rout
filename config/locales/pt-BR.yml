@@ -33,7 +33,9 @@ pt-BR:
   activerecord:
     models:
       activity: Atividade
-      category: 'Categoria'
+      category: Categoria
+      emotion: Emoção
+      feeling: Sentimento
     activity:
       created: 'Atividade criada com sucesso'
       updated: 'Atividade atualizada com sucesso'
@@ -257,7 +259,7 @@ pt-BR:
   time:
     am: ''
     formats:
-      default: "%a, %d de %B de %Y, %H:%M:%S %z"
+      default: "%a, %d de %B de %Y, %H:%M:%S"
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B, %H:%M"
     pm: ''
