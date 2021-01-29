@@ -17,7 +17,7 @@
   <p><%= @activity.comment %></p>
   <%= link_to 'Editar', edit_activity_path(@activity), class: "btn btn-secondary btn-lg" %>
   <%= link_to 'Deletar', @activity, method: :delete, data: { confirm: 'Tem certeza?' }, class: "btn btn-secondary btn-lg" %>
-  <%= link_to 'Voltar', root_path, class: "btn btn-secondary btn-lg" %>
+  <%= link_to 'Voltar', :back, class: "btn btn-secondary btn-lg" %>
 </div>
 
 

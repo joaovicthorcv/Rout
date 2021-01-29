@@ -12,4 +12,8 @@
  *
  *= require_tree .
  *= require_self
+ @import '@fullcalendar/common/main.css';
+ @import '@fullcalendar/daygrid/main.css';
+ @import "fullcalendar"
+ @import '@fullcalendar/timegrid/main.css';
  */

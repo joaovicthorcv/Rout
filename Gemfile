@@ -15,7 +15,10 @@ gem 'devise', '~> 4.2'
 gem 'i18n'
 gem 'date_wrapper'
 gem 'enumerate_it'
-gem 'jquery-rails'
+gem "chartkick"
+gem 'groupdate'
+gem 'time_difference'
+gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
