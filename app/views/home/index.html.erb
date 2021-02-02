@@ -37,7 +37,7 @@
     data: [{x: activity.start_time.strftime('%Y-%m-%d %H:%M:%S'), y: TimeDifference.between(activity.start_time, activity.end_time).in_minutes.to_i}]}
   }, dataset: { minBarLength: 10}, stacked: true %>-->
 
-  <div id="calendar"></div>
+  <div id="calendar" style="width: 80%;" class="mx-auto"></div>
     
   <table class="table table-dark table-striped table-hover">
     <thead>

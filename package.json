@@ -2,6 +2,8 @@
   "name": "rout",
   "private": true,
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.2",
+    "@fullcalendar/bootstrap": "^5.5.0",
     "@fullcalendar/core": "^5.5.1",
     "@fullcalendar/daygrid": "^5.5.0",
     "@fullcalendar/interaction": "^5.5.0",
@@ -11,6 +13,7 @@
     "@rails/activestorage": "^6.0.0",
     "@rails/ujs": "^6.0.0",
     "@rails/webpacker": "4.3.0",
+    "bootstrap": "^4.6.0",
     "chart.js": "^2.9.4",
     "chartkick": "^3.2.1",
     "fullcalendar": "^5.5.1",

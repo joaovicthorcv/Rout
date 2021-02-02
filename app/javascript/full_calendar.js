@@ -7,12 +7,17 @@ import '@fullcalendar/common/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
 
+import 'bootstrap/dist/css/bootstrap.css';
+import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config!
+import bootstrapPlugin from '@fullcalendar/bootstrap';
+
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
 
   var calendar = new Calendar(calendarEl, {
-    plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin ],
-    initialView: 'timeGridWeek',
+    plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin, bootstrapPlugin ],
+    initialView: $(window).width() < 765 ? 'list':'timeGridWeek',
+    themeSystem: 'bootstrap',
     headerToolbar: {
         left: 'prev,next today',
         center: 'title',
