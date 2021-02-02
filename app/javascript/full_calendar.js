@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin, bootstrapPlugin ],
     initialView: $(window).width() < 765 ? 'list':'timeGridWeek',
     themeSystem: 'bootstrap',
-    height: 900,
+    height: 750,
     headerToolbar: {
         left: 'prev,next today',
         center: 'title',
