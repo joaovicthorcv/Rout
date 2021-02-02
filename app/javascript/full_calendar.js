@@ -1,4 +1,4 @@
-import { Calendar } from '@fullcalendar/core';
+import { Calendar, DayHeader } from '@fullcalendar/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import listPlugin from '@fullcalendar/list';
@@ -19,7 +19,7 @@ document.addEventListener('DOMContentLoaded', function() {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin, bootstrapPlugin ],
     initialView: $(window).width() < 765 ? 'list':'timeGridWeek',
     themeSystem: 'bootstrap',
-    height: 750,
+    height: 550,
     locales: allLocales,
     locale: 'pt-br',
     headerToolbar: {
@@ -27,11 +27,44 @@ document.addEventListener('DOMContentLoaded', function() {
         center: 'title',
         right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
+    titleFormat: { year: 'numeric', month: 'short', day: 'numeric' },
     navLinks: true,
-    
     selectable: true,
     editable: true,
     events: '/activities.json',
+
+    views: {
+      dayGrid: {
+        dayHeaders: $(window).width() < 765 ? false : true,     
+        displayEventTime: $(window).width() < 765 ? false : true   
+        // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
+      },
+      timeGrid: {
+        dayHeaders: $(window).width() < 765 ? false : true
+        // options apply to timeGridWeek and timeGridDay views
+      }
+    },
+    //slotLabelClassNames: ($(window).width() < 765) ? "col-1" : "",
+    // viewDidMount: () => {
+    //   console.log('mounted view')
+    //   $('.fc-col-header-cell').css('font-size','0.5em')
+    // }, 
+    // allDayWillUnmount: () => {
+    //   console.log('unmounted allday')
+    //   $('.fc-col-header-cell').css('font-size','0.5em')
+    // // },
+    slotLabelDidMount: () => {
+       if ($(window).width() < 765){
+        $('.fc-scrollgrid-sync-table').hide()
+       }
+    },
+    viewWillUnmount: () => {
+      if ($(window).width() < 765){
+        console.log("unmounted")
+
+        $('.fc-event-time').hide()
+      }
+    }, 
 
     select: function(start, end) {
         $.getScript('/activities/new', function() {});
@@ -65,7 +98,8 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.btn-group').addClass('btn-group-sm')
     $('.btn').addClass('btn-sm')
     $('#calendar').width('100%')
-    $('.fc-toolbar-title').css('font-size','1.25em')
+    $('.fc-toolbar-title').css('font-size','1em')
+    
   } 
 });
 
