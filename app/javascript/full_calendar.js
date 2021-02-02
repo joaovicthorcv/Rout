@@ -10,19 +10,22 @@ import '@fullcalendar/timegrid/main.css';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config!
 import bootstrapPlugin from '@fullcalendar/bootstrap';
+import allLocales from '@fullcalendar/core/locales-all'
 
 document.addEventListener('DOMContentLoaded', function() {
   var calendarEl = document.getElementById('calendar');
-
+  
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin, bootstrapPlugin ],
     initialView: $(window).width() < 765 ? 'list':'timeGridWeek',
     themeSystem: 'bootstrap',
     height: 750,
+    locales: allLocales,
+    locale: 'pt-br',
     headerToolbar: {
-        left: 'prev,next today',
+        left: 'prev,next,today',
         center: 'title',
-        right: 'dayGridMonth,timeGridWeek,timeGridDay, listWeek'
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
     },
     navLinks: true,
     
@@ -58,6 +61,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   calendar.render();
+  if ($(window).width() < 765) {
+    $('.btn-group').addClass('btn-group-sm')
+    $('.btn').addClass('btn-sm')
+    $('#calendar').width('100%')
+    $('.fc-toolbar-title').css('font-size','1.25em')
+  } 
 });
 
 
