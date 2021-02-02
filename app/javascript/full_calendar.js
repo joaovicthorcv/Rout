@@ -17,9 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
   
   var calendar = new Calendar(calendarEl, {
     plugins: [ dayGridPlugin, timeGridPlugin, listPlugin, interactionPlugin, bootstrapPlugin ],
+    //initialView: 'list',
     initialView: $(window).width() < 765 ? 'list':'timeGridWeek',
     themeSystem: 'bootstrap',
-    height: 550,
+    height: 400,
     locales: allLocales,
     locale: 'pt-br',
     headerToolbar: {
@@ -92,15 +93,17 @@ document.addEventListener('DOMContentLoaded', function() {
       }
 
   });
-
+  // $('#calendarCollapser').on('click', ()=>{
+  //   calendar.render();
+  // })
   calendar.render();
   if ($(window).width() < 765) {
     $('.btn-group').addClass('btn-group-sm')
     $('.btn').addClass('btn-sm')
     $('#calendar').width('100%')
     $('.fc-toolbar-title').css('font-size','1em')
-    
   } 
+  
 });
 
 
