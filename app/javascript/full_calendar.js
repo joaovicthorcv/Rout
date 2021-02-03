@@ -64,6 +64,22 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }, 
 
+    eventResize: function(info) {
+      alert("Fim de \"" + info.event.title + "\" agora é " + info.event.end.toLocaleString('pt-BR'));
+  
+      if (!confirm("Isso está certo?")) {
+        info.revert();
+      } else {
+        event_data = { 
+          event: {
+            id: info.event.id,
+            start: info.event.start,
+            end: info.event.end
+          }
+        };
+      }
+    },
+
     select: function(start, end) {
         $.getScript('/activities/new', function() {});
 
