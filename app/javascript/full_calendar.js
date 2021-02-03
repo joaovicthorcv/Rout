@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function() {
     titleFormat: { year: 'numeric', month: 'short', day: 'numeric' },
     navLinks: true,
     selectable: true,
-    editable: true,
+    editable: false,
     events: '/activities.json',
 
     views: {
