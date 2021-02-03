@@ -37,32 +37,29 @@ document.addEventListener('DOMContentLoaded', function() {
     views: {
       dayGrid: {
         dayHeaders: $(window).width() < 765 ? false : true,     
-        displayEventTime: $(window).width() < 765 ? false : true   
+        displayEventTime: $(window).width() < 765 ? false : true,   
         // options apply to dayGridMonth, dayGridWeek, and dayGridDay views
-      },
-      timeGrid: {
-        dayHeaders: $(window).width() < 765 ? false : true
-        // options apply to timeGridWeek and timeGridDay views
       }
+      // timeGrid: {
+      //   dayHeaders: $(window).width() < 765 ? false : true
+        // options apply to timeGridWeek and timeGridDay views
+      // }
     },
     //slotLabelClassNames: ($(window).width() < 765) ? "col-1" : "",
     // viewDidMount: () => {
     //   console.log('mounted view')
     //   $('.fc-col-header-cell').css('font-size','0.5em')
     // }, 
-    // allDayWillUnmount: () => {
-    //   console.log('unmounted allday')
-    //   $('.fc-col-header-cell').css('font-size','0.5em')
-    // // },
+    dayHeaderDidMount: () => {
+      if ($(window).width() < 765){
+        $('.fc-col-header-cell-cushion').css('font-size','0.5em')
+      }
+    },
     slotLabelDidMount: () => {
-       if ($(window).width() < 765){
-        $('.fc-scrollgrid-sync-table').hide()
-       }
+      $('.fc-scrollgrid-sync-table').hide()
     },
     viewWillUnmount: () => {
       if ($(window).width() < 765){
-        console.log("unmounted")
-
         $('.fc-event-time').hide()
       }
     }, 
@@ -102,7 +99,9 @@ document.addEventListener('DOMContentLoaded', function() {
     $('.btn').addClass('btn-sm')
     $('#calendar').width('100%')
     $('.fc-toolbar-title').css('font-size','1em')
-  } 
+  } else {
+    $('.fc-toolbar-title').css('font-size','1.4em')
+  }
   
 });
 
