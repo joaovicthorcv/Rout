@@ -2,11 +2,13 @@
 // present in this directory. You're encouraged to place your actual application logic in
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
-require("jquery")
 //= require jquery
 //= require jquery_ujs
+//= require rails-ujs
+import {} from 'jquery-ujs'
 //require("@rails/ujs").start()
 //require("turbolinks").start()
+//=require turbolinks
 require("@rails/activestorage").start()
 require("channels")
 require("chartkick")

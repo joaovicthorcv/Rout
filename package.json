@@ -18,6 +18,7 @@
     "chartkick": "^3.2.1",
     "fullcalendar": "^5.5.1",
     "jquery": "^3.5.1",
+    "jquery-ujs": "^1.2.2",
     "moment": "^2.29.1",
     "turbolinks": "^5.2.0"
   },
