@@ -7,6 +7,7 @@
 //= require rails-ujs
 import {} from 'jquery-ujs'
 //require("@rails/ujs").start()
+//= require popper
 //require("turbolinks").start()
 //=require turbolinks
 require("@rails/activestorage").start()

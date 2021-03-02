@@ -6,7 +6,9 @@ import interactionPlugin from '@fullcalendar/interaction';
 import '@fullcalendar/common/main.css';
 import '@fullcalendar/daygrid/main.css';
 import '@fullcalendar/timegrid/main.css';
-
+import { createPopper } from '@popperjs/core';
+import tippy, {followCursor} from 'tippy.js';
+import 'tippy.js/dist/tippy.css'; // optional for styling
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css'; // needs additional webpack config!
 import bootstrapPlugin from '@fullcalendar/bootstrap';
@@ -33,6 +35,57 @@ document.addEventListener('DOMContentLoaded', function() {
     selectable: true,
     editable: false,
     events: '/activities.json',
+
+    eventDidMount: function(info) {
+      var displayedContent = info.event.extendedProps.category + "\n- " + "M: "+ info.event.extendedProps.mastery + " P: " + info.event.extendedProps.pleasure
+      tippy(info.el, {
+        content: displayedContent,
+        followCursor: true,
+        plugins: [followCursor]
+      });
+
+      //      const tooltip = document.querySelector('#tooltip');
+
+      // const popperInstance = createPopper(info.el, tooltip, {
+      //   title: info.event.extendedProps.description,
+      //   placement: 'top',
+      //   trigger: 'hover',
+      //   container: 'body',
+      //   modifiers: [
+      //     {
+      //       name: 'offset',
+      //       options: {
+      //         offset: [0, 8],
+      //       },
+      //     },
+      //   ],
+      // });
+
+      // function show() {
+      //   tooltip.setAttribute('data-show', '');
+      
+      //   // We need to tell Popper to update the tooltip position
+      //   // after we show the tooltip, otherwise it will be incorrect
+      //   popperInstance.update();
+      // }
+      
+      // function hide() {
+      //   tooltip.removeAttribute('data-show');
+      // }
+      
+      // const showEvents = ['mouseenter', 'focus'];
+      // const hideEvents = ['mouseleave', 'blur'];
+      
+      // showEvents.forEach(event => {
+      //   info.el.addEventListener(event, show);
+      // });
+      
+      // hideEvents.forEach(event => {
+      //   info.el.addEventListener(event, hide);
+      // });
+
+    },
+
 
     views: {
       dayGrid: {
