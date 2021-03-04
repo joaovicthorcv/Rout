@@ -31,11 +31,7 @@
     <% if activity.user == current_user %>
       <% end %>
   <% end %> 
-  <%= column_chart @activities.map { |activity|
-    {name: activity.name,
-    data: [{x: activity.start_time.strftime('%Y-%m-%d %H:%M:%S'), y: TimeDifference.between(activity.start_time, activity.end_time).in_minutes.to_i}]}
-  }, dataset: { minBarLength: 10}, stacked: true %>
-  <br>
+  [{x: activity.start_time.strftime('%Y-%m-%d %H:%M:%S'), y: TimeDifference.between(activity.start_time, activity.end_time).in_minutes.to_i}]
   <button class="btn btn-primary" id="calendarCollapser" type="button" data-toggle="collapse" data-target="#collapseCalendar" aria-expanded="false" aria-controls="collapseCalendar">
     Calendário
   </button>
@@ -45,6 +41,12 @@
   <div id="tooltip" role="tooltip">t<div id="arrow" data-popper-arrow></div></div>
   <div id="calendar" style="width: 90%;" class="mx-auto"></div>
   <br><br>
+  <%= line_chart [
+    {name: "Masteria", data: @masteries},
+    {name: "Prazer", data: @pleasures},
+    {name: "Escala de emoção", data: @emotion_scales}
+  ] %>
+  <br>
   <!--
   <table class="table table-dark table-striped table-hover">
     <thead>

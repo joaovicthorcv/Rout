@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function() {
     events: '/activities.json',
 
     eventDidMount: function(info) {
-      var displayedContent = info.event.extendedProps.category + "\n- " + "M: "+ info.event.extendedProps.mastery + " P: " + info.event.extendedProps.pleasure
+      var displayedContent = info.event.extendedProps.category + info.event.extendedProps.mastery? ("\n- " + "M: "+ info.event.extendedProps.mastery + " P: " + info.event.extendedProps.pleasure) : ""
       tippy(info.el, {
         content: displayedContent,
         followCursor: true,
