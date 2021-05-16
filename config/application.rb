@@ -11,7 +11,13 @@ module Rout
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 6.0
 
-
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+        origins '*'
+        resource '*', headers: :any, methods: [:get, :post, :put, :delete, :options]
+      end
+    end
+    
     #config.i18n.load_path += Dir\[Rails.root.join('config/locales/\*\*/\*.{rb,yml}').to_s\] 
     #config.i18n.default_locale = :de 
     config.time_zone = 'Brasilia'

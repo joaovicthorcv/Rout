@@ -41,8 +41,15 @@
   <div id="tooltip" role="tooltip">t<div id="arrow" data-popper-arrow></div></div>
   <div id="calendar" style="width: 90%;" class="mx-auto"></div>
   <br><br>
+  <div class="btn btn-group btn-scondary">
+    <div class="btn btn-secondary" onClick='var chart'></div>
+    <%= link_to '7 dias', chart_period_path(7), class: "btn-sml btn-secondary" %>
+    <%= link_to '30 dias', chart_period_path(30), class: "btn-sml btn-secondary" %>
+    <%= link_to 'Ano', chart_period_path(365), class: "btn-sml btn-secondary" %>
+  </div>
+  <%= puts @masteries, Date.today.days_ago(@chart_period) %>
   <%= line_chart [
-    {name: "Masteria", data: @masteries},
+    {name: "Masteria", data: @masteries.filter{ |k,v| k > DateTime.now.days_ago(@chart_period) }},
     {name: "Prazer", data: @pleasures},
     {name: "Escala de emoção", data: @emotion_scales}
   ] %>

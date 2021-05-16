@@ -20,6 +20,9 @@ gem 'groupdate'
 gem 'time_difference'
 gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 gem 'jquery-rails'
+gem 'grape'
+gem 'rack-cors'
+gem 'grape-active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
