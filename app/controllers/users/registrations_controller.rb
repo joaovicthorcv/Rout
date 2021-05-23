@@ -10,21 +10,21 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    super
-    @user.categories = Category.create!([
-      { title: "Sono", color: "#003487", user_id: @user.id},
-      { title: "Refeição", color: "#ff8438", user_id: @user.id},
-      { title: "Exercício físico", color: "#1ce823", user_id: @user.id},
-      { title: "Lazer", color: "#00e0e0", user_id: @user.id},
-      { title: "Hobbie", color: "#ac00e0", user_id: @user.id},
-      { title: "Estudo", color: "#edeb77", user_id: @user.id},
-      { title: "Trabalho remunerado", color: "#0073ff", user_id: @user.id},
-      { title: "Trabalho não-remunerado", color: "#82a9ad", user_id: @user.id},
-      { title: "Rotina", color: "#e6c853", user_id: @user.id}
-  ])
+  # def create
+  #   super
+  #   @user.categories = Category.create!([
+  #     { title: "Sono", color: "#003487", user_id: @user.id},
+  #     { title: "Refeição", color: "#ff8438", user_id: @user.id},
+  #     { title: "Exercício físico", color: "#1ce823", user_id: @user.id},
+  #     { title: "Lazer", color: "#00e0e0", user_id: @user.id},
+  #     { title: "Hobbie", color: "#ac00e0", user_id: @user.id},
+  #     { title: "Estudo", color: "#edeb77", user_id: @user.id},
+  #     { title: "Trabalho remunerado", color: "#0073ff", user_id: @user.id},
+  #     { title: "Trabalho não-remunerado", color: "#82a9ad", user_id: @user.id},
+  #     { title: "Rotina", color: "#e6c853", user_id: @user.id}
+  #   ])
   
-  end
+  # end
 
   # GET /resource/edit
   # def edit

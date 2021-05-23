@@ -20,9 +20,10 @@ gem 'groupdate'
 gem 'time_difference'
 gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
 gem 'jquery-rails'
-gem 'grape'
+# gem 'grape'
 gem 'rack-cors'
-gem 'grape-active_model_serializers'
+gem 'jwt'
+# gem 'grape-active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -34,6 +35,7 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
   gem 'sqlite3', '~> 1.4'
+  gem 'faker'
 end
 
 group :production do

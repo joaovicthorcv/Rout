@@ -1,13 +1,24 @@
 Rails.application.routes.draw do
   
   root 'home#index'
-  devise_for :users, :controllers => { registrations: 'users/registrations' }
+  # devise_for :users, :controllers => { registrations: 'users/registrations' }
   resources :activities 
   resources :categories
   resources :emotions
   resources :feelings
 
-  mount API::Base, at: "/"
+  # mount API::Base, at: "/"
+
+  namespace 'api' do
+  	namespace 'v1' do
+  		resources :activities
+  	end
+  end
+
+  scope :api, defaults: { format: :json } do
+    devise_for :users, :path_names => { sign_in: :login }
+    resource :user, only: [:show, :update]
+  end
 
   devise_scope :user do
     get '/users/sign_out',  :to => 'devise/sessions#destroy'
