@@ -41,10 +41,6 @@ class ApplicationController < ActionController::Base
     end
 
     def signed_in?
-        p @current_user 
-        p @current_user_id
-        p current_user 
-        p user 
         @current_user_id.present?
     end
 end
