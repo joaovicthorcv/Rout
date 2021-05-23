@@ -24,6 +24,7 @@ gem 'jquery-rails'
 gem 'rack-cors'
 gem 'jwt'
 # gem 'grape-active_model_serializers'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
