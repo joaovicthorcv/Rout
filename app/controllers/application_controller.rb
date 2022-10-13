@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     private
 
     def configure_permitted_parameters
-      devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+      devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :email, :password])
     end
 
     def authenticate_user
@@ -37,7 +37,7 @@ class ApplicationController < ActionController::Base
     end
 
     def current_user
-        @current_user ||= super || User.find(@current_user_id)
+        @current_user ||= super || (request.headers['Authorization'].present? and User.find(@current_user_id))
     end
 
     def signed_in?

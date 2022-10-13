@@ -20,17 +20,17 @@ module API
         # end
         def index 
           activities = current_user.activities.order('created_at DESC');
-          render json: {status: 'SUCCESS', message: 'Loaded activities', data:activities}, status: :ok
+          render json: {status: 'SUCCESS', message: 'Loaded activities', data: activities}, status: :ok
         end
 
         def show
-          render json: {status: 'SUCCESS', message:'Loaded activity', data:@activity}, status: :ok
+          render json: {status: 'SUCCESS', message:'Loaded activity', data: @activity}, status: :ok
         end
 
         def create
           activity = current_user.activities.build(activity_params)
           if activity.save
-            render json: {status: 'SUCCESS', message:'Saved activity', data:activity},status: :ok
+            render json: {status: 'SUCCESS', message:'Saved activity', data: activity}, status: :ok
           else
             render json: {status: 'ERROR', message:'Activities not saved', data:activity.errors},status: :unprocessable_entity
           end

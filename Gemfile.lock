@@ -280,7 +280,7 @@ DEPENDENCIES
   jbuilder (~> 2.7)
   jquery-rails
   jwt
-  listen (~> 3.2)
+  listen
   momentjs-rails (~> 2.17, >= 2.17.1)
   pg (~> 0.18.4)
   puma (~> 4.1)
@@ -291,7 +291,7 @@ DEPENDENCIES
   simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
-  sqlite3 (~> 1.4)
+  sqlite3
   time_difference
   turbolinks (~> 5)
   tzinfo-data

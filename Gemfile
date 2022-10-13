@@ -25,23 +25,25 @@ gem 'rack-cors'
 gem 'jwt'
 # gem 'grape-active_model_serializers'
 gem 'active_model_serializers'
+gem 'listen'
 
-group :development, :test do
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
 
 group :development do
   gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'sqlite3', '~> 1.4'
   gem 'faker'
+  gem 'sqlite3'
 end
 
 group :production do
   gem 'pg', '~> 0.18.4'
 end
+
+group :development, :test do
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
 
 group :test do
   gem 'capybara', '>= 2.15'

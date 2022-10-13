@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_05_23_000247) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "activities", force: :cascade do |t|
     t.string "category"
     t.string "name"
@@ -23,7 +26,7 @@ ActiveRecord::Schema.define(version: 2021_05_23_000247) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_activities_on_category_id"
     t.index ["user_id"], name: "index_activities_on_user_id"
   end
@@ -50,14 +53,16 @@ ActiveRecord::Schema.define(version: 2021_05_23_000247) do
   end
 
   create_table "emotions_feelings", force: :cascade do |t|
-    t.integer "feeling_id"
-    t.integer "emotion_id"
+    t.bigint "feeling_id"
+    t.bigint "emotion_id"
     t.index ["emotion_id"], name: "index_emotions_feelings_on_emotion_id"
     t.index ["feeling_id"], name: "index_emotions_feelings_on_feeling_id"
   end
 
   create_table "feelings", force: :cascade do |t|
     t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
     t.index ["user_id"], name: "index_feelings_on_user_id"
   end
