@@ -25,6 +25,7 @@ gem 'jwt'
 # gem 'grape-active_model_serializers'
 gem 'active_model_serializers'
 gem 'listen'
+gem 'psych'
 
 
 group :development do
