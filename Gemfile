@@ -3,12 +3,12 @@ ruby '3.2.2'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 gem 'rails', '~> 6.0.3', '>= 6.0.3.4'
-gem 'puma', '~> 4.1'
-gem 'sass-rails', '>= 6'
-gem 'webpacker', '~> 4.0'
-gem 'turbolinks', '~> 5'
-gem 'jbuilder', '~> 2.7'
-gem 'bootsnap', '>= 1.4.2', require: false
+gem 'puma'
+gem 'sass-rails'
+gem 'webpacker'
+gem 'turbolinks'
+gem 'jbuilder'
+gem 'bootsnap', require: false
 gem 'simple_form'
 gem 'devise', '~> 4.2'
 gem 'i18n'
@@ -17,7 +17,7 @@ gem 'enumerate_it'
 gem "chartkick"
 gem 'groupdate'
 gem 'time_difference'
-gem 'momentjs-rails', '~> 2.17', '>= 2.17.1'
+gem 'momentjs-rails'
 gem 'jquery-rails'
 # gem 'grape'
 gem 'rack-cors'
@@ -29,9 +29,9 @@ gem 'psych'
 
 
 group :development do
-  gem 'web-console', '>= 3.3.0'
+  gem 'web-console'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'spring-watcher-listen'
   gem 'faker'
   gem 'sqlite3'
 end

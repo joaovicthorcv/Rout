@@ -285,7 +285,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-  bootsnap (>= 1.4.2)
+  bootsnap
   byebug
   capybara (>= 2.15)
   chartkick
@@ -295,28 +295,28 @@ DEPENDENCIES
   faker
   groupdate
   i18n
-  jbuilder (~> 2.7)
+  jbuilder
   jquery-rails
   jwt
   listen
-  momentjs-rails (~> 2.17, >= 2.17.1)
+  momentjs-rails
   pg (~> 1.5.4)
   psych
-  puma (~> 4.1)
+  puma
   rack-cors
   rails (~> 6.0.3, >= 6.0.3.4)
-  sass-rails (>= 6)
+  sass-rails
   selenium-webdriver
   simple_form
   spring
-  spring-watcher-listen (~> 2.0.0)
+  spring-watcher-listen
   sqlite3
   time_difference
-  turbolinks (~> 5)
+  turbolinks
   tzinfo-data
-  web-console (>= 3.3.0)
+  web-console
   webdrivers
-  webpacker (~> 4.0)
+  webpacker
 
 RUBY VERSION
    ruby 3.2.2p53
