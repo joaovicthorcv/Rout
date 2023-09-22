@@ -27,12 +27,13 @@ Rails.application.routes.draw do
   #   resource :user, only: [:show, :update]
   # end
 
-  # devise_scope :user do
-  #   get '/users/sign_out',  :to => 'devise/sessions#destroy'
-  #   # get '/users/sign_up', to: 'registrations#new'
-  #   # post '/users', to: 'registrations#create', as: :registration
-  # end
-  
+  namespace 'admin' do
+    devise_scope :user do
+      get '/users/sign_out',  :to => 'devise/sessions#destroy'
+      get '/users/sign_up', to: 'registrations#new'
+      post '/users', to: 'registrations#create', as: :registration
+    end
+  end 
   #get 'home/index'
 
   # resources :users
