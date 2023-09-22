@@ -25,7 +25,11 @@ module Rout
     config.time_zone = 'Brasilia'
     config.active_record.default_timezone = :utc
 
-
+    config.before_configuration do
+      YAML.load(File.read(File.expand_path('config/secrets.yml')))[Rails.env].each do |key, value|
+        ENV[key.to_s] = value
+      end if File.exist?(File.expand_path('config/secrets.yml'))
+    end
     #I18n.load_path << Dir[File.expand_path("config/locales") + "/*.yml"]
     config.i18n.default_locale = :'pt-BR'
     #I18n.available_locales = [:en, 'pt-BR', :de, :fr]
