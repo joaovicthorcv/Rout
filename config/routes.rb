@@ -30,8 +30,8 @@ Rails.application.routes.draw do
   namespace 'admin' do
     devise_scope :user do
       get '/users/sign_out',  :to => 'devise/sessions#destroy'
-      get '/users/sign_up', to: 'registrations#new'
-      post '/users', to: 'registrations#create', as: :registration
+      get '/users/sign_up', to: 'users/registrations#new'
+      post '/users', to: 'users/registrations#create', as: :registration
     end
   end 
   #get 'home/index'
