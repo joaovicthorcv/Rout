@@ -9,17 +9,17 @@ Rails.application.routes.draw do
 
   # mount API::Base, at: "/"
 
-  devise_for :users
-  namespace 'api', defaults: { format: :json } do
-  	namespace 'v1' do
-      # get '/users/sign_out',  :to => 'devise/sessions#destroy'
-      devise_scope :user do
-        post 'sign_up', to: 'registrations#create'
-        post 'sign_in', to: 'sessions#create'    
-      end
-      resources :activities
-  	end
-  end
+  # devise_for :users
+  # namespace 'api', defaults: { format: :json } do
+  # 	namespace 'v1' do
+  #     # get '/users/sign_out',  :to => 'devise/sessions#destroy'
+  #     devise_scope :user do
+  #       post 'sign_up', to: 'registrations#create'
+  #       post 'sign_in', to: 'sessions#create'    
+  #     end
+  #     resources :activities
+  # 	end
+  # end
 
   # scope :api, defaults: { format: :json } do
   #   devise_for :users, controllers: { sessions: 'users/sessions', 
@@ -27,10 +27,13 @@ Rails.application.routes.draw do
   #   resource :user, only: [:show, :update]
   # end
 
+  devise_for :users
   namespace 'admin' do
-    get '/users/sign_out',  :to => 'devise/sessions#destroy'
-    get '/users/sign_up', to: 'users/registrations#new'
-    post '/users', to: 'users/registrations#create', as: :registration
+    devise_scope :user do
+      get '/users/sign_out',  :to => 'devise/sessions#destroy'
+      get '/users/sign_up', to: 'users/registrations#new'
+      post '/users', to: 'users/registrations#create', as: :registration
+    end
   end 
   #get 'home/index'
 
