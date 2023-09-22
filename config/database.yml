@@ -19,5 +19,7 @@ production:
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  database: rout_production
   username: rout
-  password: r123
+  password: <%= ENV['ROUT_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
